@@ -193,6 +193,7 @@ object Deps {
   val mavenResolverTransportFile = ivy"org.apache.maven.resolver:maven-resolver-transport-file:$mavenResolverVersion"
   val mavenResolverTransportHttp = ivy"org.apache.maven.resolver:maven-resolver-transport-http:$mavenResolverVersion"
   val mavenResolverTransportWagon = ivy"org.apache.maven.resolver:maven-resolver-transport-wagon:$mavenResolverVersion"
+  val sbtStructureCore = ivy"org.jetbrains.scala:sbt-structure-core:2024.3.0"
   val coursierJvmIndexVersion = "0.0.4-70-51469f"
 
   object RuntimeDeps {

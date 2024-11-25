@@ -165,5 +165,13 @@ object `package` extends RootModule with build.MillStableScalaModule with BuildI
     def testModuleDeps = super.testModuleDeps ++ Seq(build.scalalib)
   }
 
+  object sbt extends build.MillPublishScalaModule {
+    def moduleDeps = Seq(build.runner, maven),
+    def ivyDeps = Agg(
+      build.Deps.sbtStructureCore,
+    )
+    def testModuleDeps = super.testModuleDeps ++ Seq(build.scalalib)
+  }
+
   def testModuleDeps = super.testModuleDeps ++ Seq(build.testkit)
 }

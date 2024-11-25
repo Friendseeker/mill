@@ -563,7 +563,13 @@ trait MainModule extends BaseModule0 {
   def init(evaluator: Evaluator, args: String*): Command[ujson.Value] =
     Task.Command(exclusive = true) {
       val evaluated =
-        if (os.exists(os.pwd / "pom.xml"))
+        if (os.exists(os.pwd / "build.sbt"))
+          RunScript.evaluateTasksNamed(
+            evaluator,
+            Seq("mill.init.InitSbtModule/init") ++ args,
+            SelectMode.Separated
+          ) 
+        else if (os.exists(os.pwd / "pom.xml"))
           RunScript.evaluateTasksNamed(
             evaluator,
             Seq("mill.init.InitMavenModule/init") ++ args,
